@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問卷跳轉中...</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            text-align: center;
+        }
+        .message {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+    <script>
+        // 這裡填入你的三個 Google 表單網址
+        const formUrls = [
+            "https://forms.gle/UA8ThW5YW1JvSqy16",
+            "https://forms.gle/Zqcxrxdc16DVrJ3MA",
+            "https://forms.gle/WbnUHyTV9L4WXak79"
+        ];
+
+        function redirectToRandomForm() {
+            // 隨機產生 0, 1, 或 2
+            const randomIndex = Math.floor(Math.random() * formUrls.length);
+            const selectedUrl = formUrls[randomIndex];
+            
+            // 執行跳轉
+            window.location.replace(selectedUrl);
+        }
+
+        // 網頁載入後立即執行
+        window.onload = redirectToRandomForm;
+    </script>
+</head>
+<body>
+    <div class="message">
+        <h2>正在為您載入問卷...</h2>
+        <p>請稍候，系統將自動導向。</p>
+        <p>若無法自動跳轉，<a href="#" onclick="redirectToRandomForm(); return false;">請點擊這裡</a>。</p>
+    </div>
+</body>
+</html>
